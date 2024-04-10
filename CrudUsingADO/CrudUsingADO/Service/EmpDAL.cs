@@ -17,6 +17,9 @@ namespace CrudUsingADO.Service
             _connection = new SqlConnection(EmpConStr);
 
         }
+
+
+
         public List<EmployeeModel> GetEmployeeDetails()
         {
             List<EmployeeModel> employeelsList = new List<EmployeeModel>();
@@ -136,8 +139,6 @@ namespace CrudUsingADO.Service
         {
            SqlCommand cmd = new SqlCommand("UpdateEmployee", _connection);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-
             cmd.Parameters.AddWithValue("@Employee_Code", id);
 
             cmd.Parameters.AddWithValue("@Employee_Name", EdtEmp.Employee_Name);
@@ -178,7 +179,6 @@ namespace CrudUsingADO.Service
             SqlParameter param;
             cmd.Parameters.Add(new SqlParameter("@Employee_Code", id2));
 
-
             SqlDataAdapter Adp = new SqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();
@@ -214,10 +214,8 @@ namespace CrudUsingADO.Service
             SqlCommand cmd = new SqlCommand("DeleteEmployee", _connection);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-
             cmd.Parameters.AddWithValue("@Employee_Code", id);
 
-           
             _connection.Open();
 
             int i = cmd.ExecuteNonQuery();
@@ -247,7 +245,6 @@ namespace CrudUsingADO.Service
 
             SqlParameter param;
             cmd.Parameters.Add(new SqlParameter("@Employee_Code", id2));
-
 
             SqlDataAdapter Adp = new SqlDataAdapter(cmd);
 
