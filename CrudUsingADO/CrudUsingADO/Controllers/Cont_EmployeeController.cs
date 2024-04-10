@@ -110,7 +110,7 @@ namespace CrudUsingADO.Controllers
 
         public IActionResult DeleteEmployeeDetails(int Employee_Code)
         {
-            Console.WriteLine(Employee_Code + "...........................");
+            
             try
             {
 
