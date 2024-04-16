@@ -73,16 +73,16 @@ namespace CrudUsingADO.Controllers
                 {
                
                 if (ModelState.IsValid)
-                 {
+                {
                   
                     EmpDAL _DBemp = new EmpDAL();
                     
                     if (_DBemp.InsertEmployee(EmpDetails))
-                        {
+                    {
                         
                         return RedirectToAction("Index");
-                        }
-                 }
+                    }
+                }
 
                 return View();
 

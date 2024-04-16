@@ -23,8 +23,10 @@ namespace CrudUsingADO.Service
         public List<EmployeeModel> GetEmployeeDetails()
         {
             List<EmployeeModel> employeelsList = new List<EmployeeModel>();
+
             SqlCommand cmd = new SqlCommand("GetEmployeeDetails", _connection);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            
             SqlDataAdapter Adp = new SqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();
@@ -57,8 +59,6 @@ namespace CrudUsingADO.Service
         public bool InsertEmployee(EmployeeModel InstEmp)
 
         {
-
-           
 
             SqlCommand cmd = new SqlCommand("InsertEmployee", _connection);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
