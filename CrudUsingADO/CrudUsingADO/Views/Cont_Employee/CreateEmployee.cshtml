@@ -46,21 +46,21 @@
                 <input asp-for="Project_Assigned" class="form-control" />
                 <span asp-validation-for="Project_Assigned" class="text-danger"></span>
             </div>
+            <br />
             <div>
-
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
-                      ControlToValidate="TextBox1"
-                      Display="Dynamic" ForeColor="Red" ErrorMessage="InValid PAN Card"
-                      ValidationExpression="[A-Z]{5}\d{4}[A-Z]{1}"></asp:RegularExpressionValidator>
-                </td>
+                <label>Enter PAN Card No. </label>
+                <input name="txtPANCard" type="text" id="txtPANCard" class="PAN" />
+                <span id="lblPANCard" class="error">Invalid PAN Number</span>
+               
+            </div>
+            <div class="form-group">
+                <input type="button" id="btnSubmit" value="Submit" onclick="ValidatePAN()" />
             </div>
 
+            <hr />
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"  />
             </div>
         </form>
     </div>
@@ -70,3 +70,17 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script type="text/javascript">
+    function ValidatePAN() {
+        var txtPANCard = document.getElementById("txtPANCard");
+        var lblPANCard = document.getElementById("lblPANCard")
+        var regex = /([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
+        if (regex.test(txtPANCard.value.toUpperCase())) {
+            lblPANCard.style.visibility = "hidden";
+            return true;
+        } else {
+            lblPANCard.style.visibility = "visible";
+            return false;
+        }
+    }
+</script>
